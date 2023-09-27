@@ -107,10 +107,10 @@ Connectivity
 
 ► Install Git Bash
 
-https://git-scm.com/downloads
+>https://git-scm.com/downloads
 
 
-• ssh -i ec2-ssh ubuntu@ip-publico-ec2 | It'll not work, why?!
+>ssh -i ec2-ssh ubuntu@ip-publico-ec2 | It'll not work, why?!
 
 
 - Creating an Internet Gateway, attaching it to a VPC and creating a Route
@@ -139,67 +139,67 @@ To change this behavior, we can edit the /etc/needrestart/needrestart.conf file,
 
 
 From:
-#$nrconf{restart} = 'i';
+>#$nrconf{restart} = 'i';
 
 To:
 
-$nrconf{restart} = 'a';
+>$nrconf{restart} = 'a';
 
 
-‘i’ interactive | ‘a’ automatically
+>‘i’ interactive | ‘a’ automatically
 
 
 - Change by using the ‘sed’ command:
   
 
-sudo sed -i "/#\$nrconf{restart} = 'i';/s/.*/\$nrconf{restart} = 'a';/" /etc/needrestart/needrestart.conf
+>sudo sed -i "/#\$nrconf{restart} = 'i';/s/.*/\$nrconf{restart} = 'a';/" /etc/needrestart/needrestart.conf
 
 
 - Checking the changes made:
   
 
-cat /etc/needrestart/needrestart.conf | grep -i nrconf{restart}
+>cat /etc/needrestart/needrestart.conf | grep -i nrconf{restart}
 
 
-sudo apt update
+>sudo apt update
 
-sudo apt install python3-dev -y
+>sudo apt install python3-dev -y
 
-sudo apt install python3-pip -y
+>sudo apt install python3-pip -y
 
 
-sudo apt install build-essential libssl-dev libffi-dev -y
+>sudo apt install build-essential libssl-dev libffi-dev -y
 
-sudo apt install libmysqlclient-dev -y
+>sudo apt install libmysqlclient-dev -y
 
-sudo apt install unzip -y
+>sudo apt install unzip -y
 
-sudo apt install libpq-dev libxml2-dev libxslt1-dev libldap2-dev -y
+>sudo apt install libpq-dev libxml2-dev libxslt1-dev libldap2-dev -y
 
-sudo apt install libsasl2-dev libffi-dev -y
+>sudo apt install libsasl2-dev libffi-dev -y
 
-pip3 install flask
+>pip3 install flask
 
 
 Warning...
 
 Fixing...
 
-export PATH=$PATH:/home/ubuntu/.local/bin/
+>export PATH=$PATH:/home/ubuntu/.local/bin/
 
-pip3 install wtforms
+>pip3 install wtforms
 
-sudo apt install pkg-config
+>sudo apt install pkg-config
 
-pip3 install flask_mysqldb
+>pip3 install flask_mysqldb
 
-pip3 install passlib
+>pip3 install passlib
 
 
 - MySql Client Installation:
 
 
-sudo apt-get install mysql-client -y
+>sudo apt-get install mysql-client -y
 
 
 ## Part 3: Go Live
@@ -233,9 +233,9 @@ Check if it was associated
 
 - Connecting to the VM - EC2
 
-Let's test the SSH connection using the Windows Command Prompt: CMD
+  Let's test the SSH connection using the Windows Command Prompt: CMD
 
-• ssh -i ec2-ssh ubuntu@ip-publico-ec2
+>ssh -i ec2-ssh ubuntu@ip-publico-ec2
 
 WARNING: UNPROTECTED PRIVATE KEY FILE!
 
@@ -251,16 +251,16 @@ Remove all other Objects/Users
 
 - Downloading the Aplication and the 'Dump' files:
 
-• wget https://aws-mod3.s3.amazonaws.com/wikiapp.zip
+>wget https://aws-mod3.s3.amazonaws.com/wikiapp.zip
 
-• wget https://aws-mod3.s3.amazonaws.com/dump.sql
+>wget https://aws-mod3.s3.amazonaws.com/dump.sql
 
 
 - Connecting to the MySQL server (AWS RDS)
 
 • Copy the Endpoint of your RDS and replace it below
 
-mysql -h <rds_endpoint> -P 3306 -u admin -p
+>mysql -h <rds_endpoint> -P 3306 -u admin -p
 
 EXAMPLE: mysql -h awsuse1db01.culdx6558fqq.us-east-1.rds.amazonaws.com -P 3306 -u admin -p
 
@@ -301,14 +301,14 @@ EXAMPLE: mysql -h awsuse1db01.culdx6558fqq.us-east-1.rds.amazonaws.com -P 3306 -
 
 - Unziping the application's file
 
-• unzip wikiapp.zip
+>unzip wikiapp.zip
 
 
 - Editing the file 'wiki.py'
 
-• cd wikiapp/
+ >cd wikiapp/
 
-• vi wiki.py
+ >vi wiki.py
 
 ► session '# Config MySQL'
 
@@ -320,7 +320,7 @@ EXAMPLE: mysql -h awsuse1db01.culdx6558fqq.us-east-1.rds.amazonaws.com -P 3306 -
 
 - Loading the application:
 
-• python3 wiki.py
+>python3 wiki.py
 
 
 - Let's validate the migration:
